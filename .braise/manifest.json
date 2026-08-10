@@ -1,0 +1,39 @@
+{
+  "name": "FSL BET Skull Strip",
+  "github": "gamorosino/app-brain-extract-bet",
+  "desc": "Skull-strip a T1w volume with FSL's bet.",
+  "config": {
+    "t1": {
+      "type": "input",
+      "file_id": "t1",
+      "input_id": "t1"
+    },
+    "frac": {
+      "id": "frac",
+      "type": "number",
+      "placeholder": "0.5",
+      "advanced": false,
+      "desc": "BET fractional intensity threshold (0-1, default 0.5). Smaller values give larger brain outline estimates.",
+      "default": 0.5
+    }
+  },
+  "inputs": [
+    {
+      "id": "t1",
+      "datatype": "neuro/anat/t1w",
+      "datatype_tags": [],
+      "optional": false,
+      "multi": false,
+      "advanced": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "t1_brain",
+      "desc": "Skull-stripped (brain-extracted) T1w image produced by FSL's bet (fractional intensity threshold only; -R disabled, see main).",
+      "datatype": "neuro/anat/t1w",
+      "datatype_tags": [],
+      "archive": true
+    }
+  ]
+}
